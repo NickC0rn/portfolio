@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects.js";
+---
+
+<BaseLayout>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="mark" href="#top">Nick</a>
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Cybersecurity &amp; IT</p>
+        <h1 class="hero-name">Nicholas</h1>
+        <p class="hero-sub">
+          Cybersecurity student in Southern Illinois. I spend most of my time outside
+          of class building and securing home lab projects.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">View projects</a>
+          <a class="btn btn-ghost" href="/resume.pdf">Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <p class="section-head">About</p>
+        <div class="about-text">
+          <p>
+            I'm finishing my cybersecurity degree and I've got 2 years of IT and
+            help desk experience. Most of what I know comes from hands-on projects, so
+            outside of class I'm usually running servers, setting up Active Directory, or
+            trying to lock down my own network.
+          </p>
+          <p>
+            I compete in CCDC with my school's club and I'm working through my
+            certifications. I'm looking for IT or security work where I can keep building
+            on this.
+          </p>
+        </div>
+        <div class="chips">
+          <span class="chip"><strong>In progress:</strong>&nbsp;Security+</span>
+          <span class="chip">PNPT</span>
+          <span class="chip">OSCP</span>
+          <span class="chip">CCDC competitor</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <p class="section-head">Projects</p>
+        <div class="grid">
+          {projects.map((p) => <ProjectCard {...p} />)}
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="wrap">
+        <p class="section-head">Contact</p>
+        <p class="contact-lead">
+          I'm open to IT and security roles. Email is the fastest way to reach me,
+          but LinkedIn works too.
+        </p>
+        <div class="contact-list">
+          <div class="contact-row">
+            <span class="k">email</span>
+            <a href="mailto:nicholascornaghie@gmail.com">nicholascornaghie@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <span class="k">linkedin</span>
+            <a href="https://www.linkedin.com/in/nicholas-cornaghie-1ba85b43b/" target="_blank" rel="noopener">linkedin.com/in/nicholas-cornaghie</a>
+          </div>
+          <div class="contact-row">
+            <span class="k">github</span>
+            <a href="https://github.com/NickC0rn" target="_blank" rel="noopener">github.com/NickC0rn</a>
+          </div>
+          <div class="contact-row">
+            <span class="k">location</span>
+            <span class="v">Southern Illinois</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="copyright">Built with Astro. Hosted on Cloudflare Pages.</p>
+    </div>
+  </footer>
+</BaseLayout>
